@@ -1,0 +1,13 @@
+#NOTE: this was from when i was testing the game and i didn't end up using it in this game, however i am leaving it here because it was useful in general
+
+#theStr = oglist
+#substr = item from oglist
+
+ 
+def remove_all(sublist,oglist):
+   if sublist in oglist: #checks if apples is in theSTR
+       news = oglist.replace(sublist, " ") #if it is, it gets removed
+       print("items left: ",news)
+   else: #aka if apples is NOT in theStr
+       print(oglist)
+ 
