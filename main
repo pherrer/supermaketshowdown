@@ -1,0 +1,160 @@
+#paula herrera
+import random
+import remove_this
+import time
+
+#basic intro and greeting, uses STRING FORMATTING to have a user input their name (a string) and it can be called back through formatting 
+#USER INTERACTION AND PERSONALIZATION
+person = input("what is your name?: ")
+time.sleep(0.5)
+greeting = "hello {}, welcome to SUPERMARKET SHOWDOWN!".format(person) #STRING FORMATTING
+print(greeting)
+print("you have been sent to the supermarket to pick up groceries, get everything on your list!")
+print("----------")
+
+
+outsidelist = "tomatoes, bread, soup, tea"
+
+#USER CAN VIEW LIST
+time.sleep(0.5)
+viewoglist = input("would you like to view your list? (yes/no): ")
+#IN and NOT IN string method, sees if a substring is in a string. in this case, if yes or no are input into  viewoglist
+if "yes" in viewoglist.lower():
+  time.sleep(0.5)
+  print("you need to get:", outsidelist)
+else:
+  time.sleep(0.5)
+  print("no? okay, you kinda needed the list. oh well.")
+
+time.sleep(0.5)
+print("----------")
+
+#oglist is the string that will later on be SPLICED to form the current items that the user must get
+oglist = "tomatoes, bread, soup, tea"
+
+
+#SETS UP THE BATTLE, THE "story" FOR HOW YOU ENCOUNTER EACH MONSTER
+time.sleep(0.5)
+print ("first, you seek TOMATOES. you're roaming the endless aisles, in search for your precious product, then suddenly...")
+time.sleep(0.8)
+print ("oh no! you encountered a TOMATO TROLL with a strength power of 2! to beat it, you must roll a dice and hope your resulting strength number will be greater than your opponents strength.")
+
+#battle sequence, which is repeated for each item
+def tomatobattle():
+    print(" ")
+    rollchoice = input("time to roll the dice! (type 'roll' to continue!): ")
+    if "roll" in rollchoice.lower():
+      diceroll = random.randint(1, 6) #uses import random to generate an integer between 1 and 6
+      if diceroll > 2: #if else comparison statements
+        time.sleep(0.5)
+        print ("you rolled", diceroll,": you beat it! you can move on!!")
+        posttomatolist = oglist[9:] #STRING SPLICING, in this case, since you won the tomato battle, tomatoes will be removed from the oglist via string splicing
+        print("your current list is:",posttomatolist)
+      else:
+        time.sleep(0.5)
+        print("you rolled", diceroll)
+        farewell = "your journey ends here, {}. try again!".format(person) #again, string FORMATTING, using the string the user previously input
+        time.sleep(0.5)
+        print(farewell)
+        quit()
+
+tomatobattle() #calls the tomatobattle function
+
+print(" ")
+print("----------")
+
+time.sleep(0.5)
+print("now, you need BREAD.")
+time.sleep(0.5)
+print ("no, whats this! you encountered a BREAD BEHEAMOTH with a strength power of 4! to beat it, you must roll a dice and hope your resulting strength number will be greater than your opponents strength.")
+
+#battle sequence for bread; process exactly the same as the former battle
+print(" ")
+def breadbattle():
+    print(" ")
+    time.sleep(0.5)
+    rollchoice = input("time to roll the dice! (type 'roll' to continue!): ")
+    if "roll" in rollchoice.lower():
+      diceroll = random.randint(1, 6)
+      if diceroll > 4:
+        time.sleep(0.5)
+        print ("you rolled", diceroll,": you beat it! you can move on!!")
+        postbreadlist = oglist[17:]
+        print("your current list is:",postbreadlist)
+      else:
+        time.sleep(0.5)
+        print("you rolled:", diceroll)
+        farewell = "your journey ends here, {}. try again!".format(person)
+        time.sleep(0.5)
+        print(farewell)
+        quit()
+
+breadbattle()
+
+print(" ")
+print("----------")
+
+time.sleep(0.5)
+print("it is time for SOUP, truly a magnificent food. you're on your way to the soup aisle, and then..")
+time.sleep(0.5)
+print ("GOD NOT ANOTHER MONSTER! you encountered a SOUP SCORPION with a strength power of 3! to beat it, you must roll a dice and hope your resulting strength number will be greater than your opponents strength.")
+
+#another battle sequence
+print(" ")
+def soupbattle():
+    print(" ")
+    time.sleep(0.5)
+    rollchoice = input("time to roll the dice! (type 'roll' to continue!): ")
+    if "roll" in rollchoice.lower():
+      diceroll = random.randint(1, 6)
+      if diceroll > 4:
+        time.sleep(0.5)
+        print ("you rolled", diceroll,": you beat it! you can move on!!")
+        postsouplist = oglist[22:]
+        time.sleep(0.5)
+        print("your current list is:",postsouplist)
+      else:
+        time.sleep(0.5)
+        print("you rolled:", diceroll)
+        farewell = "your journey ends here, {}. try again!".format(person)
+        time.sleep(0.5)
+        print(farewell)
+        quit()
+
+soupbattle() #calls soupbattle function
+
+print(" ")
+print("----------")
+time.sleep(0.5)
+print("the finishing line is in sight.. may luck be on your side as you search for TEA...")
+time.sleep(0.5)
+print("but no no no it CANT BE THAT EASY since there is a TEA TITAN with a strength of 5 is waiting to battle you! to beat it, you must roll a dice and hope your resulting strength number will be greater than your opponents strength.")
+print("    ")
+
+#last battle sequence
+def teabattle():
+    print(" ")
+    rollchoice = input("time to roll the dice! (type 'roll' to continue!): ")
+    if "roll" in rollchoice.lower():
+      diceroll = random.randint(1, 6)
+      if diceroll > 5:
+        time.sleep(0.5)
+        print ("you rolled", diceroll,": you beat it! you can move on!!")
+        posttealist = oglist[26:]
+        time.sleep(0.5)
+        print("your current list is:",posttealist)
+      else:
+        time.sleep(0.5)
+        print("you rolled:", diceroll)
+        farewell = "your journey ends here, {}. try again!".format(person)
+        time.sleep(0.5)
+        print(farewell)
+        quit()
+
+teabattle() #calls teabattle function
+
+endjourney = "{}, you've finally made it to the end of your supermarket journey. you've battled formidable opponents and come out on top- the true champion of the supermarket.".format(person) #again, string formatting to make the ending message more personal by using the players name
+time.sleep(0.5)
+print(endjourney)
+
+#paula herrera
